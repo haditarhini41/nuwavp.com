@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" href="Images/nuwaicon.svg.png" type="image/png">
+  <title>Nuwa</title>
+  <link rel="stylesheet" href="style.css?v=4">
+<link href="https://db.onlinewebfonts.com/c/082252176f1f4953cea2a7e5e9f300f4?family=Franklin+Gothic+Demi" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/e130d119682ecb567748343bf7f263b0?family=Franklin+Gothic+Book" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <!-- Add the correct path or extension for your logo file -->
+      <img src="Images/logo.png" alt="Nuwa Logo" class="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html"><button class="light">Contact Us</button></a></li>
+      </ul>
+    </nav>
+   
+    <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </header>
+    <h1 style="font-size: 48px; text-align: center; margin-top: 20%;">This page is under construction</h1>
+ <footer class="footer">
+  <div class="footer-top">
+    <!-- LEFT COLUMN: Logo + Location -->
+    <div class="footer-info">
+<a href="index.html">
+      <!-- Add the correct path or extension for your logo file -->
+      <img src="Images/logo-05 1.png" alt="Nuwa Logo" class="logo">
+    </a>      <p class="location">
+        Bashoura 1526 <br>
+        Av. General Foaad Chehab<br>
+        Beirut Central Building, Bloc A<br>
+        6th Floor, Unit 44<br>
+        Beirut, Lebanon<br>
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN: Nav Links -->
+    <div class="footer-nav">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="https://maps.app.goo.gl/sL8hvPwxUWWMymtH8">Location</a></li>
+          <li><a href="team.html#apply">Careers</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="investors.html">Investors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#"></a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+      <div class="newsletter">
+        <p>Sign up to our newsletter</p>
+        <div class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Your email" required>
+            <button class="sign-up" id="newsletter-button">Sign Up</button>
+        </div>
+      </div>
+
+  <!-- SECONDARY NAV -->
+      <div class="footer-bottom">
+        <ul class="secondary-nav">
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="policies.html">Privacy Policy</a></li>
+          <li><a href="principles.html">Principles</a></li>
+          <li><a href="cookies.html">Cookie Settings</a></li>
+        </ul>
+      </div>
+</footer>
+<section class="copyright">
+  <p>© 2025 Nuwa Venture Partners. All rights reserved.<br>
+    No part of this website or its content may be reproduced or used without prior written permission from Nuwa Venture Partners.</p>
+</section>
+  </main>
+
+<script>
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+/*newsletter*/
+document.getElementById("newsletter-button").addEventListener("click", async () => {
+  const email = document.getElementById("newsletter-email").value;
+  if (!email) return alert("Please enter your email.");
+
+  const res = await fetch("http://localhost:5000/api/newsletter", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+  const data = await res.json();
+  alert(data.message);
+});
+</script>
+    </body>
+
+</html>

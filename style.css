@@ -1,0 +1,2296 @@
+@import url(https://db.onlinewebfonts.com/c/082252176f1f4953cea2a7e5e9f300f4?family=Franklin+Gothic+Demi);
+@import url(https://db.onlinewebfonts.com/c/e130d119682ecb567748343bf7f263b0?family=Franklin+Gothic+Book);
+:root {
+    --blue: #263D5B;
+    --orangeNuwa: #CF5740;
+    --lightblue: #263D5BC2;
+    --otherblue: #465872;
+    --lightgray: #D9D9D9;
+    
+}
+
+/* Base Button Styles (applies to all buttons) */
+nav button::after {
+  content: none !important;
+}
+
+/*smooth scrolling to apply in team*/
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* adjust to your header height */
+}
+/* Reset default spacing */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+.btn,
+.button {
+  width: 140px;
+  height: 60px;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* --- THEME VARIANTS --- */
+
+/* Dark button */
+button.dark,
+.btn.dark,
+.button.dark {
+  background-color: var(--blue);
+  color: white;
+  border: 1px solid transparent;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+button.dark:hover,
+.btn.dark:hover,
+.button.dark:hover {
+  background-color: white;
+  color: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* Light button */
+button.light,
+.btn.light,
+.button.light {
+  background-color: white;
+  color: var(--blue);
+  font-weight: bold;
+  border: 1px solid var(--blue);
+}
+
+button.light:hover,
+.btn.light:hover,
+.button.light:hover {
+  background-color: var(--blue);
+  color: white;
+  transform: translateY(-2px);
+  border: 1px solid white;
+}
+
+/* --- POSITION MODIFIERS --- */
+
+/* Centered on page */
+.center {
+  display: block;
+  text-align: center;
+  margin:   50px auto;
+}
+
+/* Left-aligned */
+.left {
+  display: block;
+  margin: 40px 0;
+}
+
+/* Optional: Focus effect for accessibility */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 61, 91, 0.15);
+}
+/* FONT STYLES */
+h1{
+    font-family: 'Franklin Gothic Demi', sans-serif;
+    font-weight: bold;
+    font-style: regular;
+}
+h2, h3, h4, h5, h6, p, li, a, span {
+    font-family: 'Franklin Gothic Book', sans-serif;
+    font-weight: 400;
+    font-style: regular;
+}
+body {
+    font-family: 'Franklin Gothic Demi', sans-serif;
+    font-style: regular;
+   }
+
+
+/* HEADER STYLING */
+/* --- HEADER BASE --- */
+header {
+  background-color: var(--blue); /* header background */
+  color: white;
+  padding: 20px 40px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;   /* stays on top while scrolling */
+  top: 0;
+  z-index: 1000;      /* keeps it above other elements */
+  
+}
+
+/* --- LOGO --- */
+.logo {
+  height: 191px;
+  width: 270px;
+}
+
+/* --- NAVIGATION MENU --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  margin-right: 30px;
+}
+
+/* --- NAV LINKS --- */
+nav a:has(button)::after {
+  content: none;
+}
+
+nav a {
+  position: relative;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding-bottom: 4px; /* space for underline */
+}
+nav :last-child{
+  margin-left: 20px;
+}
+
+/* --- HOVER UNDERLINE FROM CENTER --- */
+nav a:not(:has(button))::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: var(--orangeNuwa);
+  transition: transform 0.3s ease;
+}
+
+nav a:not(:has(button)):hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+nav a:not(:has(button)):hover {
+  transform: translateY(-2px);
+}
+/* --- HAMBURGER ICON (mobile) --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1175px) {
+
+  /* hide nav links by default */
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--blue);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    gap: 35px;
+  }
+  .logo{
+    width: 200px;
+    height: auto;
+    padding-left: -60px;
+  }
+  /* show menu when active */
+  nav ul.active {
+    display: flex;
+  }
+
+  /* show hamburger icon */
+  .hamburger {
+    display: flex;
+  }
+
+  /* hamburger animation when active */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+  }
+}
+
+/*vectors in the corner*/
+
+.vector-design1 {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  width: 60px;       /* adjust size as needed */
+  height: auto;
+}
+.vector-design3 {
+  position: absolute;
+  top: 105px;       /* vertical offset from top of section */
+  right: 0;         /* stick to the right edge */
+  width: auto;      /* keep original size */
+  height: auto;
+  z-index: 3;       /* above backgrounds but below text if needed */
+  margin-right: 10px;
+}
+.vector-design2 {
+  position: static;
+  margin-left: -110px;
+  width: 60px;         /* adjust size as needed */
+  height: auto;
+  z-index: 10;
+}
+
+/* MAIN CONTENT STYLING */
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background-color: var(--blue);
+  color: white;
+  gap: 60px;
+}
+
+
+/* LEFT SIDE (TEXT) */
+.hero-left {
+  max-width: 578px;
+  margin-left: 40px;
+}
+
+.hero-left h1 {
+  font-size: 3.4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-left p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-left button {
+  padding: 12px 25px;
+  background-color: white;
+  color: var(--blue);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-left button:hover {
+  background-color:var(--blue);
+  color: white;
+  border: 1px solid white;
+}
+
+/* ---------------------------
+   IMAGE STACK SECTION
+---------------------------- */
+.hero-right {
+  position: relative;
+  width: 50%;
+  height: 420px;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 60px;
+}
+
+.image-stack {
+  position: relative;
+  width: 90%;
+  max-width: 320px;
+  transition: all 0.5s ease;
+}
+
+/* Stack Images */
+.stack-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.6s ease;
+}
+
+/* Layered "photo album" look */
+.stack-image:nth-child(2) {
+  transform: translate(-50%, -50%) scale(0.95) rotate(2deg);
+  z-index: 1;
+  opacity: 0.75;
+}
+
+.stack-image:nth-child(3) {
+  transform: translate(-50%, -50%) scale(0.9) rotate(-3deg);
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.stack-image.active {
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Optional small “lift” animation */
+@keyframes lift {
+  0% { transform: translate(-50%, -50%) scale(0.95); }
+  60% { transform: translate(-50%, -55%) scale(1.02); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ---------------------------
+   ARROWS
+---------------------------- */
+.arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none; /* lets clicks through the container */
+}
+
+/* Buttons */
+.arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+/* Arrow Images */
+.arrow img {
+  
+  object-fit: contain;
+  filter: brightness(100%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.arrow.right img{
+width: 55px;
+height: 55px;
+}
+.arrow.left img{
+width: 59px;
+height: 59px;
+}
+.arrow:hover img {
+  transform: scale(1.1);
+}
+
+/* Default arrow positions */
+.arrow.left {
+  margin-left: -55px;
+}
+.arrow.right {
+  margin-right: -55px;
+}
+
+/* ---------------------------
+   RESPONSIVE DESIGN
+---------------------------- */
+
+/* Large screens: bring arrows closer */
+@media (min-width: 1200px) {
+  .arrow.left {
+    margin-left: -40px;
+  }
+  .arrow.right {
+    margin-right: -40px;
+  }
+}
+
+
+
+/* Small screens (<1000px): stack vertically */
+@media (max-width: 1100px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .hero-right {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .image-stack {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .stack-image {
+    width: 160px;
+  }
+
+  .arrows {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .arrow.left {
+    margin-left: -5px;
+  }
+  .arrow.right {
+    margin-right: -135px;
+  }
+}
+
+/* Extra small screens (<600px) */
+@media (max-width: 600px) {
+
+   .arrow.left {
+    margin-left: -5px;
+  }
+  .arrow.right {
+    margin-right: -135px;
+  }
+
+}
+
+
+/* WHY NUWA SECTION */
+.why-nuwa {
+  background-color: #ffffff;
+  color:var(--blue);
+  padding: 80px 120px;
+  text-align: left;
+  max-width: 900px;  /* keeps text readable */
+}
+
+/* HEADER */
+.why-nuwa h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  color: var(--orangeNuwa); /* orange header */
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-weight:  bold ;
+}
+
+/* PARAGRAPH */
+.why-nuwa p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* BULLET POINTS */
+.why-nuwa ul {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.why-nuwa li {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+.why-nuwa button{
+  margin-bottom: -20px;
+}
+
+/* TEAM SECTION */
+/* CONTAINER */
+.team-section {
+  display: flex;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background-color: white;
+  align-items: center;
+}
+
+/* LEFT SEMI-TRANSPARENT PANEL */
+.team-left {
+  position: absolute;               /* sit on top of carousel */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 570px;
+  background-color: rgba(31, 61, 91, 0.85); /* 85% transparent navy */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 80px;
+  z-index: 2; 
+  height: 90%;                      /* ensure it's above images */
+}
+
+/* TEXT STYLING */
+.team-left h2 {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 2.3rem;
+  font-style: italic;
+  margin: 0 0 -20px 0;
+}
+
+.team-left h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-weight: bold;
+  line-height: 1.4;
+  font-size: 2.5rem;
+  margin: 10px 0 20px 0;
+}
+
+.explore-btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  background-color: var(--lightgray);
+  color: var(--blue);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 150px;
+  height: 60px;
+}
+
+.explore-btn:hover {
+  background-color: var(--lblue);
+  color: white;
+  border: 1px solid white;
+}
+
+/* RIGHT SLIDING PHOTOS (BACKGROUND) */
+.team-carousel {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+  height: 70%;
+}
+
+.team-track {
+  display: flex;
+  gap: 6px;
+  animation: slideTeam 20s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.team-track img {
+  height: 600px;
+  width: 375px;
+  min-width: 250px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* SLIDING ANIMATION */
+@keyframes slideTeam {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .team-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .team-left {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+        margin-left: 40px;
+
+  }
+
+  .team-track img {
+    width: 45%;
+    min-width: 180px;
+    height: auto;
+  }
+  .team-section .explore-btn{
+    margin-bottom: 40px;
+  }
+}
+
+/*Main NEWS SECTION */
+.main-news {
+  align-items: center;
+  padding: 80px 100px;
+  background-color: var(--blue);
+  color: white;
+}
+
+.main-news h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  text-align: left;
+  letter-spacing: 6px;
+}
+
+.main-news h3 {
+  font-family: 'Franklin Gothic Book', sans-serif;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 3px;
+margin-top: 3px;
+
+}
+
+/* CONTAINER FOR 3 CARDS */
+.main-news-cards {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.main-news-card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.main-news-card a img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.main-news-card a img:hover {
+  transform: scale(1.03);
+}
+
+.main-news-title {
+  margin-top: 15px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.4;
+  font-size: 24px;
+}
+
+.main-news-title:hover {
+  text-decoration: underline;
+}
+
+.main-news-date {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: white
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .main-news {
+    padding: 60px 20px;
+    display: block;
+  }
+
+  .main-news-cards {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .main-news-card {
+    width: 100%;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .why-nuwa {
+    padding: 50px 20px;
+  }
+}
+
+.main-news button{
+  margin-top: 30px;
+  margin-bottom: -10px;
+}
+/*contact-us section*/
+
+.contact-us h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #263D5B;
+  margin: 50px auto 0 auto; /* top auto bottom auto left-right */
+  letter-spacing: 4px;
+}
+
+.contact-us p{
+  font-family: 'Franklin Gothic Book',sans-serif;
+  color: #263D5B;
+  font-style: italic;
+  width: 549px;
+  height: 72px;
+  display: block;
+  margin: 50px auto 0;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.contact-us button{
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+@media (max-width: 600px){
+  .contact-us p{
+   text-align: center;
+    width: 100%;
+    margin: 0 auto
+  }
+
+}
+
+/* FOOTER BASE */
+.footer {
+  background-color: var(--lightgray);
+  color: #263D5B;
+  padding: 60px 120px 40px;
+  font-family: 'Franklin Gothic Book', sans-serif;
+}
+
+/* TOP SECTION: LOGO + NAV SIDE BY SIDE */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+/* LEFT SIDE: LOGO + LOCATION */
+.footer-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-info .logo {
+  width: 220px;
+  height: auto;
+  margin-left: -45px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+.location {
+  font-size: 14px;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* RIGHT SIDE: NAV LINKS */
+.footer-nav {
+  flex: 1 1 300px;
+}
+
+.main-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+.main-nav li a {
+  text-decoration: none;
+  color: #263D5B;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  margin-top: -50px;
+}
+
+.newsletter p {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--blue);
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  width: 220px;
+  padding: 12px 14px;
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  font-size: 15px;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--orangeNuwa);
+  box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2);
+}
+
+.newsletter-form button.sign-up {
+  height: 48px;
+  width: 110px;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--orangeNuwa);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.newsletter-form button.sign-up:hover {
+  background-color: #e68600;
+  transform: translateY(-2px);
+}
+
+/* BOTTOM NAV */
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-nav {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  
+}
+
+.secondary-nav li::after {
+  content: "|";
+  margin-left: 10px;
+}
+
+.secondary-nav li:last-child::after {
+  content: "";
+}
+
+.secondary-nav li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.secondary-nav li a:hover {
+  color: black;
+}
+/* RESPONSIVE FOOTER NAV */
+
+/* Medium screens: hide nav links */
+@media (max-width: 1175px) {
+  .footer{
+    margin-left: -50px;
+    align-items: flex-start;
+  }
+  .footer-nav {
+    display: none; /* hide nav links */
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .footer-info {
+    width: 100%;
+  }
+
+  .newsletter {
+    margin-top: -85px;
+  }
+
+  .newsletter-form {
+    flex-direction: row;
+    gap: 10px;
+    width: auto;
+  }
+
+  .newsletter-form input {
+    width: 220px;
+  }
+
+  .newsletter-form button.sign-up {
+    width: 110px;
+  }
+}
+
+/* Small screens: stack newsletter vertically */
+@media (max-width: 600px) {
+  .newsletter-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  
+
+  .footer-bottom {
+    justify-content: center;
+  }
+}
+
+
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  font-family: 'Franklin Gothic Book', sans-serif;
+  align-items: center;
+  font-size: 12px;
+  background-color: var(--blue);
+  color: white;
+  padding: 5px 0; /* add vertical spacing inside */
+  
+  margin: 0;  
+} 
+
+.copyright p {
+  padding: 5px;
+}
+
+/*about page*/
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-left: 10%;
+  text-align: left;
+  box-sizing: border-box;
+ 
+  /* image behind + transparent overlay */
+  background:
+    linear-gradient(rgba(31, 61, 91, 0.75), rgba(31, 61, 91, 0.85)),
+    url('Images/Rectangle 2.png') no-repeat center center / cover;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Ensure both texts have identical baseline metrics */
+.about-hero h1,
+.about-hero .typing-text {
+  font-family: 'Franklin Gothic Book', sans-serif;  /* use the same font family */
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+/* make them appear in one line without shifting */
+.about-hero h1 {
+  display: inline-block;
+  margin-top: -150px;
+}
+
+.about-hero .typing-text {
+  display: inline-block;
+  border-right: 3px solid var(--orangeNuwa);
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 0.3rem; /* small visual gap between fixed and typed text */
+  animation: blink 0.7s step-end infinite;
+}
+
+/* blinking cursor */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-hero {
+    padding-left: 5%;
+    height: 800px;
+  }
+
+  .about-hero h1,
+  .about-hero .typing-text {
+    font-size: 2.6rem;
+    line-height: 1.2;
+  }
+}
+
+/*who we are section*/
+.about-us {
+  background-color: #ffffff;
+  color:var(--blue);
+  padding: 80px 120px;
+  text-align: left;
+  max-width: 900px;  /* keeps text readable */
+}
+.about-us h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  color: var(--orangeNuwa); /* orange header */
+  font-size: 3.2rem;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  font-weight:  bold ;
+}
+.about-us p {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+@media (max-width : 600px){
+  .about-us{
+    margin-top: -30px;
+  }
+   .about-us h1 {
+    margin-top: 50px;
+    font-size: 3rems;
+  }
+  .about-us p {
+    font-size: 1.2rem;
+  }
+  .about-us h1, .about-us p{
+    margin-left: -80px;
+    width: 340px;
+
+  }
+}
+
+/* --- SECTION CONTAINER --- */
+.mission {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.mission-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0px;
+  flex-wrap: wrap;
+}
+
+/* --- SHARED CARD BASE --- */
+.mission-card,
+.Vision-card,
+.Values-card {
+  position: relative;
+  width: 331px;
+  height: 304px;
+  text-align: center;
+  padding-top: 90px; /* space for circle overlap */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.mission-card:hover,
+.Vision-card:hover,
+.Values-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* --- CIRCLE (shared base) --- */
+.mission-card .circle,
+.Vision-card .circle,
+.Values-card .circle {
+  position: absolute;
+  top: -62px; /* half of circle height for overlap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mission-card .circle img,
+.Vision-card .circle img,
+.Values-card .circle img {
+  width: 75px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/* --- CARD CONTENT --- */
+.card-content h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+  
+}
+
+.card-content p {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+}
+
+/* --- INDIVIDUAL CARD STYLES --- */
+
+/* 1️⃣ MISSION CARD */
+.mission-card {
+  background-color: var(--otherblue);
+}
+
+.mission-card .circle {
+  background-color: var(--blue); /* or custom color */
+}
+
+/* 2️⃣ VISION CARD */
+.Vision-card {
+  background-color: var(--blue); /* light blue-gray tone */
+}
+
+.Vision-card .circle {
+  background-color: var(--otherblue); /* light blue accent */
+}
+
+
+
+/* 3️⃣ VALUES CARD */
+.Values-card {
+  background-color: var(--otherblue); /* soft cream background */
+}
+
+.Values-card .circle {
+  background-color: var(--blue); /* teal/green */
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1000px) {
+  .mission-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .mission-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+}
+
+/* MISSION SECTION */
+.our-philosophy {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* stretch children to same height */
+  padding: 100px 10%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/* FLEX CONTAINER (image + text) */
+.philosophy-content {
+  display: flex;
+  align-items: stretch; /* makes both sides equal height */
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* LEFT IMAGE CONTAINER */
+.philosophy-image {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch; /* image fills full height of section */
+  height: 550px;
+  width: 550px;
+  margin-top: 45px;
+}
+
+/* Bottom seed image */
+.seed-img1 {
+  object-fit: cover; /* ensures it stretches with section */
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  transform-origin: left center;
+  opacity: 1;
+}
+
+
+/* RIGHT TEXT */
+.philosophy-text {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* aligns text top and bottom evenly */
+  color: var(--blue);
+}
+
+.philosophy-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  color: var(--orangeNuwa);
+}
+
+.philosophy-text p {
+  font-size: 24px;
+  color: var(--blue);
+  margin-bottom: 1px;
+  font-family: 'Franklin Gothic Book', sans-serif;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1400px) {
+  .philosophy-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .philosophy-image,
+  .philosophy-text {
+    flex: unset;
+    
+    align-items: center;
+    text-align: center;
+  }
+  .seed-img1,
+  .seed-img {
+    
+    
+    object-fit: contain;
+  }
+  .vector-design3 {
+    display: none;
+  }
+}
+
+
+
+
+/* VECTOR DESIGN IMAGE (floating on right) */
+.vector-design3 {
+  position: absolute;
+  top: 105px;   /* vertical offset */
+  right: 0;     /* stick to the right edge */
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+
+/* about page contact*/
+.about-contact-us {
+  background-color: var(--blue);
+  color:white;
+  text-align: center;
+  height: 256px;
+  padding-top: 50px;
+  padding-bottom: 35px;
+}
+.about-contact-us h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-size: 46px;
+
+}
+.about-contact-us p{
+  font-family: 'Franklin Gothic Book',sans-serif;
+  font-style: italic;
+  height: 72px;
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+@media (max-width: 560px){
+  .about-contact-us{
+    height: auto;
+    padding: 40px 20px;
+  }
+  .about-contact-us button.light{
+    margin-bottom: 10px;
+  }
+}
+
+
+/* Principles Section */
+.principles {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.principles h2 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 48px;
+  color: var(--blue);
+  margin: 60px 0 40px 60px; /* header aligned left */
+}
+
+.principle {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Left & Right Boxes */
+.left-box,
+.right-box {
+  flex: 1; /* make both expand/shrink equally */
+  height: 144px;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+}
+
+/* Left Side */
+.left-box {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  background-color: var(--otherblue);
+  color: white;
+  justify-content: flex-start;
+}
+
+/* Right Side */
+.right-box {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  background-color: var(--blue);
+  color: white;
+  justify-content: flex-start;
+  font-size: 24px;
+}
+/* Text Styles */
+.left-box h3 {
+  font-size: 34px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 5px;
+}
+
+.left-box h3 span {
+  font-size: 60px;
+  font-weight: bold;
+  color: white;
+  margin-right: 3px;
+}
+
+.right-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 90%;
+}
+
+/* Responsive Layout */
+@media (max-width: 800px) {
+  .principle {
+    flex-direction: column;
+  }
+  .principle h1{
+    padding:0;
+    align-items: center;
+    display: block;
+  }
+
+  .left-box,
+  .right-box {
+    width: 100%;
+    height: auto;
+    padding: 40px;
+  }
+}
+
+/* Sectors Section */
+.sectors {
+  width: 100%;
+  background-color: #f9fbfd;
+  text-align: left;
+  padding: 80px 60px;
+  box-sizing: border-box;
+}
+
+.sectors h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 48px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.sectors .subtitle {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  color: var(--blue);
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-top: -10px;
+  margin-bottom: 60px;
+}
+
+/* Grid Layout */
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 80px;
+  justify-items: start; /* Align everything to the left */
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sector-item {
+  text-align: left;
+  max-width: 280px;
+  position: relative;
+}
+
+/* Base icon styling */
+.sector-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Text styling */
+.sector-item h3 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 18px;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.sector-item p {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--blue);
+  margin: 0;
+}
+
+/* Responsive Layout */
+@media (max-width: 1100px) {
+  .sectors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sectors-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sector-item {
+    max-width: 100%;
+  }
+}
+.about-contact-us button{
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+/* Apply Section */
+
+.apply{
+  padding-left: 80px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-color: var(--blue);
+  color: white;
+}
+.apply h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-weight: bold;
+  font-size: 42px;
+
+}
+.apply p{
+  font-family: 'Franklin Gothic Book',sans-serif;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+
+/* Team Section */
+.team-hero {
+  width: 100%;
+  background-color: #fff;
+  text-align: left;
+  padding: 60px 100px;
+  box-sizing: border-box;
+  color: var(--blue);
+}
+
+/* Unified H1 style for both sections */
+.section-header h1,
+.team-header h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 48px; /* matches team-header size */
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Unified EM style inside H1 */
+.section-header h1 em,
+.team-header h1 em {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--blue);
+  margin-right: 5px;
+}
+
+/* Unified SPAN style inside H1 */
+.section-header h1 span,
+.team-header h1 span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Unified paragraph style */
+.section-header p,
+.team-header p {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 17px;
+  color: var(--blue);
+  max-width: 708px;
+  margin-bottom: 40px; /* keep spacing */
+  font-weight: 590;
+  line-height: 1.5;
+}
+
+
+/* Team Members Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Each Member */
+.team-member {
+  text-align: left;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Flip card container */
+.flip-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  perspective: 1000px; /* 3D perspective */
+  margin-bottom: 10px;
+}
+
+/* Inner wrapper */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip on hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0;
+}
+
+/* Front side */
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Back side */
+.flip-card-back {
+  background-color: var(--blue);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  width: 255px;
+  height: 352px;
+}
+div.flip-card-back p{
+  color: white;
+  font-size: 20px;
+}
+/* Names and roles */
+.team-member h3 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 18px;
+  color: var(--blue);
+  font-weight: bold;
+  margin: 5px 0 0 0;
+}
+
+.team-member p {
+  font-family: 'Franklin Gothic Book', sans-serif;
+  font-size: 14px;
+  color: black;
+  margin: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 1350px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-header h1 {
+    font-size: 36px;
+  }
+}
+
+
+/* Portfolio Section */
+.companies {
+  padding: 60px 100px;
+  background-color: #fff;
+  color: var(--blue);
+  text-align: left;
+}
+
+.companies p{
+  width: 600px;
+}
+/* Filters */
+.filters {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+}
+
+.filters label {
+  color: var(--blue);
+  font-size: 20px;
+}
+
+.filters select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Grid */
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styling */
+.company-card {
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: only the image zooms out */
+.company-card:hover .company-img img {
+  transform: scale(1.08);
+}
+
+.company-img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.company-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Text container */
+.company-card-content {
+  padding: 25px 35px; /* wider padding for right shift */
+  text-align: left;
+}
+
+.company-card-content h3 {
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.company-card-content p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Optional: subtle card shadow when hovered */
+.company-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .companies {
+    padding: 60px 20px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.companies button{
+  margin-top: 50px;
+  margin-bottom: -10px;
+}
+
+/* News Section */
+.news {
+  width: 100%;
+  text-align: left;
+  padding: 80px 100px; /* balanced top/bottom spacing */
+  box-sizing: border-box;
+}
+
+.news h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  font-size: 48px; /* matches team-header size */
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Grid Layout */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(345px, 1fr)); /* adaptive layout */
+  gap: 60px 60px; /* space between cards */
+  justify-items: start;
+}
+
+/* Card container */
+.news-card {
+  width: 345px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0; /* remove negative spacing */
+}
+
+/* Image container */
+.news-image {
+    margin-top: -180px;
+
+  width: 100%;
+  aspect-ratio: 16 / 9; /* consistent proportions */
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--light-gray);
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Headings and Date */
+.news-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 10px 0 6px;
+  line-height: 1.4;
+  color: var(--blue);
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .news {
+    padding: 60px 60px;
+  }
+  .news h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  .news-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .news {
+    padding: 0;
+    align-items: center;
+    display: block;
+
+  }
+  .news h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+  }
+  .news-grid {
+    grid-template-columns: 1fr; /* single column layout */
+    gap: 30px;
+    justify-items: center;
+  }
+  .news-card {
+    align-items: center;
+    text-align: center;
+  }
+  .news-heading,
+  .news-date {
+    text-align: center;
+  }
+}
+
+.news button{
+  margin-top: 60px;
+  margin-bottom: 0px;
+}
+
+/* Entrepreneur Form - styled like Investor Form */
+main.entrepreneur-form {
+  color: var(--blue, #263D5B);
+  width: 85%;
+  max-width: 950px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Franklin Gothic Book', sans-serif;
+}
+
+main.entrepreneur-form h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--blue, #263D5B);
+  margin-bottom: 30px;
+}
+
+main.entrepreneur-form h2 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  color: var(--blue, #263D5B);
+  font-size: 1.3rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--blue, #263D5B);
+  padding-bottom: 5px;
+}
+main.entrepreneur-form p {
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 1rem;
+  margin-bottom: 50px;
+}
+
+main.entrepreneur-form section {
+  margin-bottom: 40px;
+  padding: 20px 25px; /* optional: padding inside section */
+}
+
+main.entrepreneur-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: var(--blue, #263D5B);
+}
+
+main.entrepreneur-form input,
+main.entrepreneur-form textarea,
+main.entrepreneur-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+  font-size: 0.95rem;
+  font-family: 'Franklin Gothic Book', sans-serif;
+  transition: all 0.2s ease;
+}
+
+main.entrepreneur-form input:focus,
+main.entrepreneur-form textarea:focus,
+main.entrepreneur-form select:focus {
+  outline: none;
+  border-color: var(--blue, #263D5B);
+  box-shadow: 0 0 5px rgba(38, 61, 91, 0.2);
+}
+
+main.entrepreneur-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+main.entrepreneur-form .checkbox-group,
+main.entrepreneur-form .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  margin-top: 10px;
+}
+
+main.entrepreneur-form .checkbox-group label,
+main.entrepreneur-form .radio-group label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+main.entrepreneur-form input[type="checkbox"],
+main.entrepreneur-form input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+
+main.entrepreneur-form .note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Upload Section */
+main.entrepreneur-form input[type="file"] {
+ 
+  background: #f7f7f7;
+  padding: 12px;
+    cursor: pointer;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  main.entrepreneur-form {
+    padding: 25px;
+    width: 90%;
+  }
+
+  main.entrepreneur-form h1 {
+    font-size: 1.8rem;
+  }
+
+  main.entrepreneur-form h2 {
+    font-size: 1.1rem;
+  }
+
+  main.entrepreneur-form .checkbox-group,
+  main.entrepreneur-form .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/*investors form*/
+main.investor-form {
+  color: var(--blue, #263D5B);
+  width: 85%;
+  max-width: 950px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Franklin Gothic Book', sans-serif;
+}
+
+main.investor-form h1 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--blue, #263D5B);
+  margin-bottom: 30px;
+}
+
+main.investor-form p {
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 1rem;
+  margin-bottom: 50px;
+}
+
+main.investor-form h2 {
+  font-family: 'Franklin Gothic Demi', sans-serif;
+  color: var(--blue, #263D5B);
+  font-size: 1.3rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--blue, #263D5B);
+  padding-bottom: 5px;
+}
+
+main.investor-form section {
+  margin-bottom: 40px;
+}
+
+main.investor-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: var(--blue, #263D5B);
+}
+
+main.investor-form input,
+main.investor-form textarea,
+main.investor-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+  font-size: 0.95rem;
+  font-family: 'Franklin Gothic Book', sans-serif;
+  transition: all 0.2s ease;
+}
+
+main.investor-form input:focus,
+main.investor-form textarea:focus,
+main.investor-form select:focus {
+  outline: none;
+  border-color: var(--blue, #263D5B);
+  box-shadow: 0 0 5px rgba(38, 61, 91, 0.2);
+}
+
+main.investor-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+main.investor-form .checkbox-group,
+main.investor-form .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  margin-top: 10px;
+}
+
+main.investor-form .checkbox-group label,
+main.investor-form .radio-group label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+main.investor-form input[type="checkbox"],
+main.investor-form input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+
+
+main.investor-form .note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Upload Section */
+main.investor-form input[type="file"] {
+  border: none;
+  background: #f7f7f7;
+  padding: 12px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main.investor-form {
+    padding: 25px;
+    width: 90%;
+  }
+
+  main.investor-form h1 {
+    font-size: 1.8rem;
+  }
+
+  main.investor-form h2 {
+    font-size: 1.1rem;
+  }
+
+  main.investor-form .checkbox-group,
+  main.investor-form .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

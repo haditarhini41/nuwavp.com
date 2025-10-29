@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" href="Images/nuwaicon.svg.png" type="image/png">
+
+  <title>Investor Registration Form</title>
+  <link rel="stylesheet" href="style.css?v=4">
+<link href="https://db.onlinewebfonts.com/c/082252176f1f4953cea2a7e5e9f300f4?family=Franklin+Gothic+Demi" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/e130d119682ecb567748343bf7f263b0?family=Franklin+Gothic+Book" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <!-- Add the correct path or extension for your logo file -->
+      <img src="Images/logo.png" alt="Nuwa Logo" class="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html"><button class="light">Contact Us</button></a></li>
+      </ul>
+    </nav>
+   
+    <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </header>
+<body>
+  <main class="investor-form">
+    <h1>Investor Registration Form</h1>
+    <p>
+      Welcome to NUWA Venture Partners. Please share your investment profile and preferences so we can match you with relevant opportunities across our venture studio and portfolio. All information is confidential.
+    </p>
+
+    <form id="investorForm" action="../backend/submit_investor.php" method="POST" enctype="multipart/form-data">
+
+      <!-- Section 1 -->
+      <section>
+        <h2>Section 1 — Personal & Contact Information</h2>
+
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="Full Name" required />
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="Email" required />
+
+        <label for="phone">Phone Number (with country code)</label>
+        <input type="tel" id="phone" name="Phone Number" placeholder="+961..." />
+
+        <label for="organization">Organization / Fund / Family Office Name</label>
+        <input type="text" id="organization" name="Organization" />
+
+        <label for="role">Job Title / Role</label>
+        <input type="text" id="role" name="Job Title" />
+
+        <label for="linkedin">LinkedIn Profile</label>
+        <input type="url" id="linkedin" name="LinkedIn" placeholder="https://linkedin.com/in/..." />
+
+        <label for="website">Website (if applicable)</label>
+        <input type="url" id="website" name="Website" />
+      </section>
+
+      <!-- Section 2 -->
+      <section>
+        <h2>Section 2 — Investor Profile</h2>
+
+        <label>Investor Type *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="Investor Type" value="Angel Investor" required /> Angel Investor</label>
+          <label><input type="radio" name="Investor Type" value="Family Office" /> Family Office</label>
+          <label><input type="radio" name="Investor Type" value="Venture Capital Fund" /> Venture Capital Fund</label>
+          <label><input type="radio" name="Investor Type" value="Corporate VC" /> Corporate VC</label>
+          <label><input type="radio" name="Investor Type" value="Other" /> Other</label>
+        </div>
+
+        <label>Geographic Focus (select all that apply)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Geographic Focus" value="Lebanon" /> Lebanon</label>
+          <label><input type="checkbox" name="Geographic Focus" value="GCC" /> GCC</label>
+          <label><input type="checkbox" name="Geographic Focus" value="MENA" /> MENA</label>
+          <label><input type="checkbox" name="Geographic Focus" value="Africa" /> Africa</label>
+          <label><input type="checkbox" name="Geographic Focus" value="Europe" /> Europe</label>
+          <label><input type="checkbox" name="Geographic Focus" value="North America" /> North America</label>
+          <label><input type="checkbox" name="Geographic Focus" value="Latin America" /> Latin America</label>
+          <label><input type="checkbox" name="Geographic Focus" value="Asia-Pacific" /> Asia-Pacific</label>
+          <label><input type="checkbox" name="Geographic Focus" value="Global" /> Global</label>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section>
+        <h2>Section 3 — Investment Focus</h2>
+
+        <label>Preferred Investment Sectors</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Sectors" value="EdTech" /> EdTech</label>
+          <label><input type="checkbox" name="Sectors" value="AgriTech" /> AgriTech</label>
+          <label><input type="checkbox" name="Sectors" value="Health & Wellbeing" /> Health & Wellbeing</label>
+          <label><input type="checkbox" name="Sectors" value="Clean Tech & Sustainability" /> Clean Tech & Sustainability</label>
+          <label><input type="checkbox" name="Sectors" value="Cybersecurity" /> Cybersecurity</label>
+          <label><input type="checkbox" name="Sectors" value="E-commerce & Marketplaces" /> E-commerce & Marketplaces</label>
+          <label><input type="checkbox" name="Sectors" value="Fintech" /> Fintech</label>
+          <label><input type="checkbox" name="Sectors" value="AI & Deep Tech" /> AI & Deep Tech</label>
+          <label><input type="checkbox" name="Sectors" value="Mobility & Logistics" /> Mobility & Logistics</label>
+          <label><input type="checkbox" name="Sectors" value="Other" /> Other</label>
+        </div>
+
+        <label>Preferred Investment Stages</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Stages" value="Pre-Seed" /> Pre-Seed</label>
+          <label><input type="checkbox" name="Stages" value="Seed" /> Seed</label>
+          <label><input type="checkbox" name="Stages" value="Series A" /> Series A</label>
+          <label><input type="checkbox" name="Stages" value="Series B+" /> Series B+</label>
+          <label><input type="checkbox" name="Stages" value="Growth" /> Growth</label>
+          <label><input type="checkbox" name="Stages" value="Later Stage" /> Later Stage</label>
+        </div>
+
+        <label>Preferred Investment Instruments</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Instruments" value="Equity" /> Equity</label>
+          <label><input type="checkbox" name="Instruments" value="SAFE" /> SAFE</label>
+          <label><input type="checkbox" name="Instruments" value="Revenue-Based Financing" /> Revenue-Based Financing</label>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section>
+        <h2>Section 4 — Ticket Size & Fund Overview</h2>
+        <label for="minTicket">Typical Investment Ticket In USD (Minimum)</label>
+        <input type="number" id="minTicket" name="Min Ticket" placeholder="e.g., 50000" />
+
+        <label for="maxTicket">Typical Investment Ticket In USD (Maximum)</label>
+        <input type="number" id="maxTicket" name="Max Ticket" placeholder="e.g., 500000" />
+      </section>
+
+      <!-- Section 5 -->
+      <section>
+        <h2>Section 5 — Investment Style & Engagement</h2>
+        <label>Preferred Role / Involvement</label>
+        <div class="radio-group">
+          <label><input type="radio" name="Role" value="Hands-on" /> Hands-on (Board / Advisory involvement)</label>
+          <label><input type="radio" name="Role" value="Selective" /> Selective involvement (as needed)</label>
+          <label><input type="radio" name="Role" value="Passive" /> Passive (capital only)</label>
+        </div>
+
+        <label>Co-Investment Preference</label>
+        <div class="radio-group">
+          <label><input type="radio" name="Co-Investment" value="Open" /> Open to co-investment</label>
+          <label><input type="radio" name="Co-Investment" value="Lead" /> Prefer to lead rounds</label>
+          <label><input type="radio" name="Co-Investment" value="Case-by-case" /> Case-by-case basis</label>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section>
+        <h2>Section 6 — References & Background</h2>
+        <label for="portfolioExamples">Portfolio Companies or Investment Examples</label>
+        <textarea id="portfolioExamples" name="Portfolio Examples" placeholder="List examples..."></textarea>
+
+        <label for="portfolioDeck">Upload Portfolio Deck (optional)
+        <input type="file" id="portfolioDeck" name="Portfolio Deck" accept=".pdf" />
+        </label>
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="Additional Notes" placeholder="Anything else you'd like us to know..."></textarea>
+      </section>
+
+      <!-- Section 7 -->
+      <section>
+        <h2>Section 7 — Communication & Consents</h2>
+
+        <label>Preferred Communication Channels</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="Communication" value="Email" /> Email</label>
+          <label><input type="checkbox" name="Communication" value="WhatsApp" /> WhatsApp</label>
+          <label><input type="checkbox" name="Communication" value="Phone" /> Phone</label>
+          <label><input type="checkbox" name="Communication" value="In-person" /> In-person meetings / events</label>
+        </div>
+
+        <label>Would you like to receive NUWA updates & deal flow summaries?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="Updates" value="Yes" /> Yes</label>
+          <label><input type="radio" name="Updates" value="No" /> No</label>
+        </div>
+
+        <label class="privacy">
+          <input type="checkbox" name="Consent" required />
+          I confirm that the information provided is accurate and agree to NUWA Venture Partners’ privacy policy regarding data handling and communication.
+        </label>
+      </section>
+
+      <!-- Section 8 -->
+      <section>
+        <h2>Section 8 — Submission</h2>
+        <p class="note">Thank you for registering. Our partnership team will contact you once suitable opportunities are available.</p>
+        <button type="submit" class="dark center">Submit Registration</button>
+      </section>
+
+    </form>
+    </main>
+    <footer class="footer">
+        <div class="footer-top">
+          <!-- LEFT COLUMN: Logo + Location -->
+        <div class="footer-info">
+          <a href="index.html">
+          <!-- Add the correct path or extension for your logo file -->
+          <img src="Images/logo-05 1.png" alt="Nuwa Logo" class="logo">
+             </a>      <p class="location">
+              Bashoura 1526 <br>
+              Av. General Foaad Chehab<br>
+              Beirut Central Building, Bloc A<br>
+              6th Floor, Unit 44<br>
+              Beirut, Lebanon<br>
+            </p>
+          </div>
+
+    <!-- RIGHT COLUMN: Nav Links -->
+    <div class="footer-nav">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="https://maps.app.goo.gl/sL8hvPwxUWWMymtH8">Location</a></li>
+          <li><a href="team.html#apply">Careers</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="investors.html">Investors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#"></a></li>
+
+        </ul>
+      </nav>
+    </div>
+   </div>
+
+    <!-- NEWSLETTER -->
+      <div class="newsletter">
+        <p>Sign up to our newsletter</p>
+        <div class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Your email" required>
+            <button class="sign-up" id="newsletter-button">Sign Up</button>
+        </div>
+      </div>
+
+    <!-- SECONDARY NAV -->
+      <div class="footer-bottom">
+        <ul class="secondary-nav">
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="policies.html">Privacy Policy</a></li>
+          <li><a href="principles.html">Principles</a></li>
+          <li><a href="cookies.html">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </footer>
+    <section class="copyright">
+     <p>© 2025 Nuwa Venture Partners. All rights reserved.<br>
+       No part of this website or its content may be reproduced or used without prior written permission from Nuwa Venture Partners.</p>
+    </section>
+
+<script>
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+/*newsletter*/
+document.getElementById("newsletter-button").addEventListener("click", async () => {
+  const email = document.getElementById("newsletter-email").value;
+  if (!email) return alert("Please enter your email.");
+
+  const res = await fetch("http://localhost:5000/api/newsletter", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+  const data = await res.json();
+  alert(data.message);
+});
+</script>
+    </body>
+
+</html>

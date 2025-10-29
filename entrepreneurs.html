@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" href="Images/nuwaicon.svg.png" type="image/png">
+  <title>Entrepreneur Application Form</title>
+  <link rel="stylesheet" href="style.css?v=4">
+<link href="https://db.onlinewebfonts.com/c/082252176f1f4953cea2a7e5e9f300f4?family=Franklin+Gothic+Demi" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/e130d119682ecb567748343bf7f263b0?family=Franklin+Gothic+Book" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <!-- Add the correct path or extension for your logo file -->
+      <img src="Images/logo.png" alt="Nuwa Logo" class="logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html"><button class="light">Contact Us</button></a></li>
+
+      </ul>
+    </nav>
+   
+    <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </header>
+ <main class="entrepreneur-form">
+    <h1>Entrepreneur Application Form</h1>
+    <p>  Welcome to NUWA Venture Partners. Please share your startup information so we can understand your vision, market, and team. All information is confidential.</p>
+    <form id="startupForm" action="../backend/submit_startup.php" method="POST" enctype="multipart/form-data">
+      <!-- Section 1: Startup Overview -->
+      <section class="overview">
+        <h2>Section 1 — Startup Overview</h2>
+
+        <label for="startupName">Startup Name *</label>
+        <input type="text" id="startupName" name="startupName" required>
+
+        <label for="oneLiner">One-liner Description *</label>
+        <input type="text" id="oneLiner" name="oneLiner" required>
+
+        <label for="website">Website </label>
+        <input type="url" id="website" name="website" placeholder="https://example.com">
+
+        <label for="sector">Sector *</label>
+        <select id="sector" name="sector" required>
+          <option value="">-- Select a Sector --</option>
+          <option>EdTech</option>
+          <option>AgriTech</option>
+          <option>Health & Wellbeing</option>
+          <option>Clean Tech & Sustainability</option>
+          <option>Cybersecurity</option>
+          <option>E-commerce & Marketplaces</option>
+          <option>Other</option>
+        </select>
+
+        <label>Stage *</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="stage" value="Idea"> Idea</label>
+          <label><input type="checkbox" name="stage" value="Prototype"> Prototype</label>
+          <label><input type="checkbox" name="stage" value="MVP"> MVP</label>
+          <label><input type="checkbox" name="stage" value="Early Traction"> Early Traction</label>
+          <label><input type="checkbox" name="stage" value="Revenue"> Revenue</label>
+        </div>
+      </section>
+
+      <!-- Section 2: Problem & Solution -->
+      <section class="problem-solution">
+        <h2>Section 2 — Problem & Solution</h2>
+
+        <label for="problem">What problem are you solving? *</label>
+        <textarea id="problem" name="problem" rows="3" required></textarea>
+
+        <label for="solution">Describe your solution (product/service) *</label>
+        <textarea id="solution" name="solution" rows="3" required></textarea>
+
+        <label for="innovation">What's unique or innovative about your approach? *</label>
+        <textarea id="innovation" name="innovation" rows="3" required></textarea>
+      </section>
+
+      <!-- Section 3: Market & Traction -->
+      <section class="market-traction">
+        <h2>Section 3 — Market & Traction</h2>
+
+        <label for="target">Target Customers & Early Adopters *</label>
+        <textarea id="target" name="target" rows="3" required></textarea>
+
+        <label for="marketSize">Market Size (TAM/SAM/SOM, estimates or sources)</label>
+        <textarea id="marketSize" name="marketSize" rows="3"></textarea>
+
+        <label for="traction">Traction so far (users, pilots, revenues, LOIs, etc.)</label>
+        <textarea id="traction" name="traction" rows="3"></textarea>
+
+        <label for="competitors">Competitors or Alternatives</label>
+        <textarea id="competitors" name="competitors" rows="3"></textarea>
+      </section>
+
+      <!-- Section 4: Business & Team -->
+      <section class="business-team">
+        <h2>Section 4 — Business & Team</h2>
+
+        <label for="businessModel">Business Model (how do/will you make money?) *</label>
+        <textarea id="businessModel" name="businessModel" rows="3" required></textarea>
+
+        <label for="founders">Founders & Team Roles (why you?) *</label>
+        <textarea id="founders" name="founders" rows="3" required></textarea>
+
+        <label for="fundraising">Fundraising Status / Ask (if any)</label>
+        <textarea id="fundraising" name="fundraising" rows="3"></textarea>
+      </section>
+
+      <!-- Section 5: Track & Attachments -->
+      <section class="track-attachments">
+        <h2>Section 5 — Track & Attachments</h2>
+
+        <label>Which track(s) are you interested in? *</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="track" value="Investment Only"> Investment Only</label>
+          <label><input type="checkbox" name="track" value="Venture Studio Support"> Venture Studio Support</label>
+          <label><input type="checkbox" name="track" value="PhD Innovation Track"> PhD Innovation Track</label>
+        </div>
+
+        <label for="support">What support do you need most right now?</label>
+        <textarea id="support" name="support" rows="3"></textarea>
+
+        <label for="pitchDeck">Upload Pitch Deck </label>
+        <input type="file" id="pitchDeck" name="pitchDeck" accept=".pdf,.ppt,.pptx,.doc,.docx,.mp4,.mov,.avi">
+      </section>
+
+      <!-- Section 6 -->
+      <section>
+        <h2>Section 6 — Submission</h2>
+        <p class="note">Thank you for registering. Our partnership team will contact you soon.</p>
+        <button type="submit" class="dark center">Submit Registration</button>
+      </section>
+    </form>
+  </main>
+  <footer class="footer">
+  <div class="footer-top">
+    <!-- LEFT COLUMN: Logo + Location -->
+    <div class="footer-info">
+<a href="index.html">
+      <!-- Add the correct path or extension for your logo file -->
+      <img src="Images/logo-05 1.png" alt="Nuwa Logo" class="logo">
+    </a>      <p class="location">
+        Bashoura 1526 <br>
+        Av. General Foaad Chehab<br>
+        Beirut Central Building, Bloc A<br>
+        6th Floor, Unit 44<br>
+        Beirut, Lebanon<br>
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN: Nav Links -->
+    <div class="footer-nav">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="https://maps.app.goo.gl/sL8hvPwxUWWMymtH8">Location</a></li>
+          <li><a href="team.html#apply">Careers</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="investors.html">Investors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <p>Sign up to our newsletter</p>
+  <form class="newsletter-form" action="../backend/subscribe_newsletter.php" method="POST">
+    <input type="email" name="email" placeholder="Your email" required>
+    <button type="submit" class="sign-up">Sign Up</button>
+  </form>
+</div>
+
+
+  <!-- SECONDARY NAV -->
+  <div class="footer-bottom">
+    <ul class="secondary-nav">
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Principles</a></li>
+      <li><a href="#">Cookie Settings</a></li>
+    </ul>
+  </div>
+  </footer>
+  <section class="copyright">
+    <p>© 2025 Nuwa Venture Partners. All rights reserved.<br>
+       No part of this website or its content may be reproduced or used without prior written permission from Nuwa Venture Partners.</p>
+     </section>
+
+<script>
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+</script>
+ </body>
+
+</html>
